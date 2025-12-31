@@ -1386,24 +1386,63 @@
             box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
         }
 
-        @media (max-width: 768px) {
-            #spaceGameContainer {
-                height: 500px;
-            }
-
-            .space-game-screen {
-                padding: 20px;
-            }
-
-            .space-game-screen h1 {
-                font-size: 36px !important;
-            }
-
-            .space-game-btn {
-                padding: 12px 30px;
-                font-size: 18px;
-            }
-        }
+      @media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 15, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(108, 99, 255, 0.2);
+        gap: 0;
+    }
+    
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-links li {
+        margin: 12px 0;
+    }
+    
+    .cv-download-btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    /* ADD THE HIDING CODE RIGHT HERE: */
+    .game-floating-btn {
+        display: none !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .social-links-modern {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 
