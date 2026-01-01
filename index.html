@@ -127,6 +127,7 @@
         }
 
         /* Modern Logo */
+        /* Modern Logo */
         .logo-wrapper {
             display: flex;
             align-items: center;
@@ -1386,63 +1387,229 @@
             box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
         }
 
-      @media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 10, 15, 0.95);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-        border-bottom: 1px solid rgba(108, 99, 255, 0.2);
-        gap: 0;
-    }
-    
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .nav-links li {
-        margin: 12px 0;
-    }
-    
-    .cv-download-btn {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    
-    /* ADD THE HIDING CODE RIGHT HERE: */
-    .game-floating-btn {
-        display: none !important;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    
-    .btn-group {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .social-links-modern {
-        grid-template-columns: 1fr;
-    }
-}
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 15, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                border-bottom: 1px solid rgba(108, 99, 255, 0.2);
+                gap: 0;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                margin: 12px 0;
+            }
+
+            .cv-download-btn {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            /* ADD THE HIDING CODE RIGHT HERE: */
+            .game-floating-btn {
+                display: none !important;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .social-links-modern {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .logo-container {
+            position: relative;
+        }
+
+        /* Letter wrapper */
+        .letter-wrapper {
+            position: relative;
+            width: 100px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Rotating circles */
+        .circle-decoration {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid;
+        }
+
+        .circle-1 {
+            width: 66px;
+            height: 66px;
+            border-color: rgba(79, 172, 254, 0.3);
+            animation: rotate-slow 15s linear infinite;
+        }
+
+        .circle-2 {
+            width: 51px;
+            height: 51px;
+            border-color: rgba(0, 242, 254, 0.4);
+            animation: rotate-reverse 12s linear infinite;
+        }
+
+        @keyframes rotate-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotate-reverse {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        /* N letter */
+        .stylish-n {
+            font-family: 'Playfair Display', serif;
+            font-size: 57px;
+            font-weight: 35;
+            font-style: italic;
+            letter-spacing: -5px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 2;
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.6));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.8));
+            }
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #00f2fe;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe;
+            animation: sparkle 2s infinite ease-in-out;
+        }
+
+        .sparkle-1 {
+            top: 10px;
+            right: 10px;
+        }
+
+        .sparkle-2 {
+            bottom: 15px;
+            left: 15px;
+            animation-delay: .5s;
+        }
+
+        .sparkle-3 {
+            right: 5px;
+            top: 50%;
+            animation-delay: 1s;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Background glow */
+        .bg-glow {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15), transparent 70%);
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .letter-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+
+            .stylish-n {
+                font-size: 70px;
+            }
+
+            .circle-1 {
+                width: 70px;
+                height: 50px;
+            }
+
+            .circle-2 {
+                width: 60px;
+                height: 60px;
+            }
+        }
     </style>
 </head>
 
@@ -1460,7 +1627,7 @@
             <div class="game-close-btn" onclick="closeGameModal()">
                 <i class="fas fa-times"></i>
             </div>
-           
+
             <!-- Game Body -->
             <div class="game-body">
                 <!-- Space War Game -->
@@ -1508,11 +1675,19 @@
     </div>
 
     <!-- Navigation -->
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="container nav-container">
             <a href="#" class="logo-wrapper">
-                <div class="logo-icon">
-                    <span class="letter-n">N</span>
+                <div class="logo-container">
+                    <div class="letter-wrapper">
+                        <div class="circle-decoration circle-1"></div>
+                        <div class="circle-decoration circle-2"></div>
+                        <div class="stylish-n">N</div>
+                        <div class="sparkle sparkle-1"></div>
+                        <div class="sparkle sparkle-2"></div>
+                        <div class="sparkle sparkle-3"></div>
+                    </div>
                 </div>
                 <div class="logo-text">
                     <div class="logo-name">Naqeeb Ullah</div>
@@ -2348,7 +2523,7 @@
         // Create enemies - MEDIUM DIFFICULTY
         function createEnemies() {
             enemies = [];
-debugger;
+            debugger;
             // Medium difficulty: 6x3 grid
             const cols = 8;
             const rows = 4;
@@ -2733,7 +2908,7 @@ debugger;
             if (gameOverScreen) {
                 gameOverScreen.classList.remove('hidden');
                 gameOverScreen.style.display = 'flex';
-                
+
                 if (gameOverTitle) {
                     gameOverTitle.textContent = victory ? '🎉 VICTORY! 🎉' : '💥 GAME OVER 💥';
                     if (victory) {
@@ -2744,7 +2919,7 @@ debugger;
                         gameOverTitle.style.textShadow = '0 0 20px rgba(255, 0, 0, 0.8)';
                     }
                 }
-                
+
                 if (finalScore) finalScore.textContent = `FINAL SCORE: ${score}`;
             }
         }
@@ -2934,4 +3109,5 @@ debugger;
         });
     </script>
 </body>
+
 </html>
