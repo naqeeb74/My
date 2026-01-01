@@ -405,35 +405,7 @@
             letter-spacing: 1px;
         }
 
-        /* Image Frame */
-        .image-frame {
-            width: 380px;
-            height: 380px;
-            border-radius: 25px;
-            background: var(--gradient);
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: perspective(1000px) rotateY(-8deg);
-            transition: var(--transition);
-            box-shadow: 0 25px 50px rgba(108, 99, 255, 0.2),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-        }
-
-        .image-frame:hover {
-            transform: perspective(1000px) rotateY(0deg) scale(1.03);
-        }
-
-        .profile-img {
-            width: 340px;
-            height: 340px;
-            border-radius: 18px;
-            object-fit: cover;
-            border: 8px solid rgba(10, 10, 15, 0.8);
-            position: relative;
-            z-index: 2;
-        }
+        
 
         /* Cards */
         .card {
@@ -964,12 +936,6 @@
             .contact-container {
                 grid-template-columns: 1fr;
             }
-
-            .image-frame {
-                margin: 0 auto;
-                transform: none;
-            }
-
             .hero-content h1 {
                 font-size: 3.2rem;
             }
@@ -1045,15 +1011,7 @@
                 font-size: 2.3rem;
             }
 
-            .image-frame {
-                width: 280px;
-                height: 280px;
-            }
-
-            .profile-img {
-                width: 250px;
-                height: 250px;
-            }
+            
 
             .card {
                 padding: 25px;
@@ -1610,6 +1568,264 @@
                 height: 60px;
             }
         }
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Animated gradient border */
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(45deg, 
+                #4facfe, 
+                #00f2fe, 
+                #667eea, 
+                #764ba2, 
+                #4facfe
+            );
+            background-size: 300% 300%;
+            border-radius: 50%;
+            animation: gradient-rotate 3s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradient-rotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Inner glow effect */
+        .image-frame::after {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-glow 3s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        /* Profile image */
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #0f0c29;
+            box-shadow: 
+                0 0 30px rgba(79, 172, 254, 0.4),
+                0 0 60px rgba(0, 242, 254, 0.2),
+                inset 0 0 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 50px rgba(79, 172, 254, 0.6),
+                0 0 80px rgba(0, 242, 254, 0.4),
+                inset 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #00f2fe;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #00f2fe;
+            animation: float-particle 4s ease-in-out infinite;
+        }
+
+        .particle-1 {
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle-2 {
+            top: 20%;
+            left: 5%;
+            animation-delay: 0.5s;
+        }
+
+        .particle-3 {
+            bottom: 15%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .particle-4 {
+            bottom: 10%;
+            left: 10%;
+            animation-delay: 1.5s;
+        }
+
+        .particle-5 {
+            top: 50%;
+            right: 0%;
+            animation-delay: 2s;
+        }
+
+        .particle-6 {
+            top: 50%;
+            left: 0%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translateY(-15px) scale(1.2);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-30px) scale(0.8);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translateY(-15px) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Rotating rings */
+        .ring {
+            position: absolute;
+            border: 2px solid;
+            border-radius: 50%;
+            animation: rotate-ring 20s linear infinite;
+        }
+
+        .ring-1 {
+            width: 380px;
+            height: 380px;
+            border-color: rgba(79, 172, 254, 0.2);
+            border-style: dashed;
+        }
+
+        .ring-2 {
+            width: 420px;
+            height: 420px;
+            border-color: rgba(0, 242, 254, 0.15);
+            border-style: dotted;
+            animation-duration: 25s;
+            animation-direction: reverse;
+        }
+
+        @keyframes rotate-ring {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Corner accents */
+        .corner-accent {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 3px solid;
+        }
+
+        .corner-tl {
+            top: -30px;
+            left: -30px;
+            border-color: #4facfe transparent transparent #4facfe;
+            border-radius: 8px 0 0 0;
+            animation: corner-glow 2s ease-in-out infinite;
+        }
+
+        .corner-tr {
+            top: -30px;
+            right: -30px;
+            border-color: #00f2fe #00f2fe transparent transparent;
+            border-radius: 0 8px 0 0;
+            animation: corner-glow 2s ease-in-out infinite 0.5s;
+        }
+
+        .corner-bl {
+            bottom: -30px;
+            left: -30px;
+            border-color: transparent transparent #667eea #667eea;
+            border-radius: 0 0 0 8px;
+            animation: corner-glow 2s ease-in-out infinite 1s;
+        }
+
+        .corner-br {
+            bottom: -30px;
+            right: -30px;
+            border-color: transparent #764ba2 #764ba2 transparent;
+            border-radius: 0 0 8px 0;
+            animation: corner-glow 2s ease-in-out infinite 1.5s;
+        }
+
+        @keyframes corner-glow {
+            0%, 100% {
+                opacity: 0.4;
+                box-shadow: none;
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 20px currentColor;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-frame {
+                width: 280px;
+                height: 280px;
+            }
+
+            .ring-1 {
+                width: 310px;
+                height: 310px;
+            }
+
+            .ring-2 {
+                width: 340px;
+                height: 340px;
+            }
+
+            .corner-accent {
+                width: 30px;
+                height: 30px;
+            }
+
+            .corner-tl, .corner-tr, .corner-bl, .corner-br {
+                top: -20px;
+                bottom: -20px;
+                left: -20px;
+                right: -20px;
+            }
+        }
     </style>
 </head>
 
@@ -1750,12 +1966,27 @@
                     </div>
                 </div>
 
-                <div class="hero-image">
-                    <div class="image-frame">
-                        <!-- Add your profile picture here -->
-                        <img src="Images/Naqeeb.png" alt="Naqeeb Ullah" class="profile-img">
-                    </div>
-                </div>
+                
+               <div class="hero-image">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        
+        <div class="image-frame">
+            <div class="corner-accent corner-tl"></div>
+            <div class="corner-accent corner-tr"></div>
+            <div class="corner-accent corner-bl"></div>
+            <div class="corner-accent corner-br"></div>
+            
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+            
+            <img src="Images/Naqeeb.png" alt="Naqeeb Ullah" class="profile-img">
+        </div>
+    </div>
             </div>
         </div>
     </header>
